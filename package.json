@@ -1,0 +1,13 @@
+{
+  "name": "js-concepts",
+  "version": "1.0.0",
+  "description": "i have covered all js-concepts which i am being utilised in project",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "shivprasad",
+  "license": "ISC"
+}
