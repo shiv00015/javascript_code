@@ -1,4 +1,5 @@
 import { internalFunction, personalDeatils } from "./concepts/closure.js";
+import { curry } from "./concepts/curry.js";
 import { wrapperDivide, wrapperMulitply } from "./concepts/higherorder-functions.js";
 
 
@@ -33,6 +34,15 @@ const obj = {
 // console.log(inStance.getPersonalDetails());
 // console.log(inStance.getPersonalDetails());
 
-internalFunction();
+// internalFunction();
 
+// currying example
 
+function add(a , b, c) {
+    return a + b + c;
+}
+
+const curriedAdd = curry(add);
+console.log(curriedAdd(2)(4)(6));
+console.log(curriedAdd(2, 4)(6));
+console.log(curriedAdd(2)(3, 9));
