@@ -5,7 +5,6 @@ export function debounce(fn, time) {
             clearInterval(interval);
             interval = setTimeout(() => {
                 const result = fn.apply(this, args);
-                console.log('result', result);
                 resolve(result);
             }, time);
         });
