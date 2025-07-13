@@ -1,5 +1,6 @@
 import { internalFunction, personalDeatils } from "./concepts/closure.js";
 import { curry, log } from "./concepts/curry.js";
+import { debounce } from "./concepts/debounce.js";
 import { wrapperDivide, wrapperMulitply } from "./concepts/higherorder-functions.js";
 
 
@@ -47,8 +48,23 @@ function add(a , b, c) {
 // console.log(curriedAdd(2, 4)(6));
 // console.log(curriedAdd(2)(3, 9));
 
-const errorLogName = log("error")(new Date().toISOString());
-errorLogName("Some thing went wrong");
+// const errorLogName = log("error")(new Date().toISOString());
+// errorLogName("Some thing went wrong");
 
-const succcessFullyLogName = log("success")(new Date().toISOString());
-succcessFullyLogName("the service executed successfully!");
+// const succcessFullyLogName = log("success")(new Date().toISOString());
+// succcessFullyLogName("the service executed successfully!");
+
+
+function getText(text) {
+    return "sh".includes(text) ? text : '';
+}
+ const checkText = debounce(getText, 1200);
+ checkText("sfd").then((result) => {
+    console.log('Final result:', result); // Logs "Final result: 10" after 1 second
+});
+ checkText('asfsdf').then((result) => {
+    console.log('Final result:', result); // Logs "Final result: 10" after 1 second
+});
+ checkText('sh').then((result) => {
+    console.log('Final result:', result); // Logs "Final result: 10" after 1 second
+});
