@@ -2,15 +2,16 @@ import { internalFunction, personalDeatils } from "./concepts/closure.js";
 import { curry, log } from "./concepts/curry.js";
 import { debounce } from "./concepts/debounce.js";
 import { wrapperDivide, wrapperMulitply } from "./concepts/higherorder-functions.js";
+import { memoization } from "./concepts/memoization.js";
 
 
 const obj = {
     a: 10,
     b: 23,
-    getA (n) {
+    getA(n) {
         return (this.a + this.b) / n
     },
-    getB () {
+    getB() {
         return this.b;
     }
 }
@@ -39,7 +40,7 @@ const obj = {
 
 // currying example
 
-function add(a , b, c) {
+function add(a, b, c) {
     return a + b + c;
 }
 
@@ -55,16 +56,42 @@ function add(a , b, c) {
 // succcessFullyLogName("the service executed successfully!");
 
 
-function getText(text) {
-    return "sh".includes(text) ? text : '';
+// function getText(text) {
+//     return "sh".includes(text) ? text : '';
+// }
+// const checkText = debounce(getText, 1200);
+//  checkText("sfd").then((result) => {
+//     console.log('Final result:', result); // Logs "Final result: 10" after 1 second
+// });
+//  checkText('asfsdf').then((result) => {
+//     console.log('Final result:', result); // Logs "Final result: 10" after 1 second
+// });
+//  checkText('sh').then((result) => {
+//     console.log('Final result:', result); // Logs "Final result: 10" after 1 second
+// });
+
+// console.log('execution furhter continues')
+
+
+function slowfibonacciSeries(limit, num1, num2, str) {
+    const sum = num1 + num2
+    if (sum >= limit)
+        return str;
+    const temp = str.concat(`, ${sum}`);
+    return slowfibonacciSeries(limit, num2, sum, temp);
 }
- const checkText = debounce(getText, 1200);
- checkText("sfd").then((result) => {
-    console.log('Final result:', result); // Logs "Final result: 10" after 1 second
-});
- checkText('asfsdf').then((result) => {
-    console.log('Final result:', result); // Logs "Final result: 10" after 1 second
-});
- checkText('sh').then((result) => {
-    console.log('Final result:', result); // Logs "Final result: 10" after 1 second
-});
+
+function slowFibonacci(n) {
+    console.log('rere');
+    if (n <= 1) return n;
+    return slowFibonacci(n - 1) + slowFibonacci(n - 2);
+}
+
+const str = '0, 1';
+
+const fastFibonacciSeries = memoization(slowfibonacciSeries);
+const fastFibonacci = memoization(slowFibonacci);
+
+console.log(fastFibonacciSeries(10, 0, 1, str));
+console.log(fastFibonacci(2));
+console.log(fastFibonacci(2));
