@@ -1,5 +1,5 @@
 import { personalDeatils } from "./concepts/closure.js";
-import { wrapperDivide, wrapperMulitply } from "./concepts/first-class-functions.js";
+import { wrapperDivide, wrapperMulitply } from "./concepts/higherorder-functions.js";
 
 
 const obj = {
