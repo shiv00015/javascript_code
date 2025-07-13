@@ -22,3 +22,11 @@ export function curry(fun) {
         }
     }
 }
+
+export function log(level) {
+    return function (timeStampe) {
+        return function (message) {
+            return console.log(`${level}: ${message} time: ${timeStampe}`)
+        }
+    }
+}

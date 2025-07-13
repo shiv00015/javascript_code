@@ -1,5 +1,5 @@
 import { internalFunction, personalDeatils } from "./concepts/closure.js";
-import { curry } from "./concepts/curry.js";
+import { curry, log } from "./concepts/curry.js";
 import { wrapperDivide, wrapperMulitply } from "./concepts/higherorder-functions.js";
 
 
@@ -42,7 +42,13 @@ function add(a , b, c) {
     return a + b + c;
 }
 
-const curriedAdd = curry(add);
-console.log(curriedAdd(2)(4)(6));
-console.log(curriedAdd(2, 4)(6));
-console.log(curriedAdd(2)(3, 9));
+// const curriedAdd = curry(add);
+// console.log(curriedAdd(2)(4)(6));
+// console.log(curriedAdd(2, 4)(6));
+// console.log(curriedAdd(2)(3, 9));
+
+const errorLogName = log("error")(new Date().toISOString());
+errorLogName("Some thing went wrong");
+
+const succcessFullyLogName = log("success")(new Date().toISOString());
+succcessFullyLogName("the service executed successfully!");
