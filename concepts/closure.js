@@ -1,11 +1,11 @@
-function personalDeatils(name, age)  {
+function personalDeatils(name, age) {
     return {
-        getPersonalDetails: function() {
+        getPersonalDetails: function () {
             return `Name: ${name}, Age: ${age}`;
         },
-        setPersonalDetails: function(newName, newAge) {
-             name = newName;
-             newAge = newAge;
+        setPersonalDetails: function (newName, newAge) {
+            name = newName;
+            newAge = newAge;
         }
     }
 }
@@ -16,21 +16,32 @@ export function wrapperMulitply(fn, varint) {
     }
 }
 
-function addDataCart (item, price) {
+function addDataCart(item, price) {
     return {
-        getItem: function() {
+        getItem: function () {
             return item;
         },
-        getPrice: function() {
+        getPrice: function () {
             return price;
         },
-        setItem: function(newItem) {
+        setItem: function (newItem) {
             item = newItem;
         },
-        setPrice: function(newPrice) {
+        setPrice: function (newPrice) {
             price = newPrice;
         }
     }
 }
+
+export function internalFunction() {
+    for (var i = 1; i <= 3; i++) {
+        (function (j) {
+            setTimeout(() => {
+                console.log(`After ${j} second(s): ${j}`);
+            }, j * 1000);
+        })(i);
+    }
+}
+    
 
 export { personalDeatils, addDataCart };

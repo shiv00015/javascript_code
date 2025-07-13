@@ -1,4 +1,4 @@
-import { personalDeatils } from "./concepts/closure.js";
+import { internalFunction, personalDeatils } from "./concepts/closure.js";
 import { wrapperDivide, wrapperMulitply } from "./concepts/higherorder-functions.js";
 
 
@@ -32,5 +32,7 @@ const obj = {
 // inStance.setPersonalDetails('rahul', 30);
 // console.log(inStance.getPersonalDetails());
 // console.log(inStance.getPersonalDetails());
+
+internalFunction();
 
 
